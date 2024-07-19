@@ -1,6 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const port = 3000;
 
@@ -24,6 +26,7 @@ async function fetchData(div) {
       "https://codeforces.com/api/contest.list?gym=false",
       requestOptions
     );
+    // console.log(await response);
     const result = await response.json();
 
     const div2Contests = [];
